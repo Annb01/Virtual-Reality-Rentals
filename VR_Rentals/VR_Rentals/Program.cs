@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using VR_Rentals.Models;
+
 namespace VR_Rentals
 {
     public class Program
@@ -8,6 +11,10 @@ namespace VR_Rentals
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<RentalContext>(options =>
+                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             var app = builder.Build();
 
