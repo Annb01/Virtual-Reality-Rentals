@@ -7,7 +7,9 @@
         public string CustomerSurname { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
-        public string Salt { get; set; }
         public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }
+
+
+

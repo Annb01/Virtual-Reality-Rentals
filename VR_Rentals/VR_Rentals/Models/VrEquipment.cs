@@ -23,6 +23,7 @@ namespace VR_Rentals.Models
         public Status EquipmentStatus { get; set; }
         public bool NeedController { get; set; }
         public byte[] Image { get; set; }
+        public string Description { get; set; }
         public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }
