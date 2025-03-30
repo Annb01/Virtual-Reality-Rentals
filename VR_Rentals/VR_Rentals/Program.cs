@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using VR_Rentals.Data;
 using VR_Rentals.Models;
 
 namespace VR_Rentals
@@ -36,6 +37,15 @@ namespace VR_Rentals
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<RentalContext>();
+                context.Database.Migrate();
+                DbInitializer.SeedData(context);
+            }
 
             app.Run();
         }
