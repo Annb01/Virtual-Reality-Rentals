@@ -1,12 +1,12 @@
-﻿namespace VR_Rentals.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace VR_Rentals.Models
 {
-    public class Customer
+    public class Customer : IdentityUser<int>
     {
-        public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string CustomerSurname { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
+
         public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }
