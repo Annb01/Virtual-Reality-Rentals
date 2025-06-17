@@ -1,0 +1,28 @@
+﻿@model VR_Rentals.Models.Customer
+
+<h2>Edit Customer</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="CustomerId" />
+
+    <div class="form-group">
+        <label asp-for="CustomerName" class="control-label"></label>
+        <input asp-for="CustomerName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CustomerSurname" class="control-label"></label>
+        <input asp-for="CustomerSurname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PasswordHash" class="control-label"></label>
+        <input asp-for="PasswordHash" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Back</a>
+</form>
